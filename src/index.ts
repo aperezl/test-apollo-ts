@@ -1,6 +1,13 @@
-import { add } from './lib/math'
-function main() {
-  console.log(`math.add(3, 4) = ${add(5, 4)}`)
-}
+import { ApolloServer } from 'apollo-server'
+import schema from './graphql/schema/schema'
 
-main()
+const server = new ApolloServer({ schema })
+
+server
+  .listen()
+  .then(({ url }) => {
+    console.log(`🚀  Server ready at ${url}`)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
