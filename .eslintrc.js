@@ -4,7 +4,7 @@ module.exports = {
     ecmaVersion: 6,
     sourceType: 'module',
   },
-  ignorePatterns: ['node_modules', 'dist'],
+  ignorePatterns: ['node_modules', 'dist', 'src/generated'],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',

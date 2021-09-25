@@ -1,24 +1,13 @@
-import { Book } from '@src/data/types/Book'
-import GqlBook from '@src/graphql/schema/typedefs/GqlBook'
+import { Book } from '@prisma/client'
 import { GraphQLList } from 'graphql'
-
-const books: Book[] = [
-  {
-    id: 1,
-    title: 'Harry Potter and the Chamber of Secrets',
-    author: 'J.K. Rowling',
-  },
-  {
-    id: 2,
-    title: 'Jurassic Park',
-    author: 'Michael Crichton',
-  },
-]
+import GqlBook from '../../typedefs/GqlBook'
+import { getAllBooks } from '../../../../data/bookService'
 
 const getAllBooksQuery = {
-  type: new GraphQLList(GqlBook),
-  resolve: (): Book[] => {
-    return books
+  type: GraphQLList(GqlBook),
+  // eslint-disable @typescript-eslint/no-unused-vars
+  revolve: async (): Promise<Book[]> => {
+    return getAllBooks()
   },
 }
 
